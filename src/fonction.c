@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h> 
+#include <string.h>
 #define NBMOTS 2309
 #define Len_Mot 6
 
@@ -30,4 +31,18 @@ void Tab_mots(char Mots[][Len_Mot]) {
 
 }
 
-int main(){}
+void Sub_Filter(char sub[], char NewTab[][Len_Mot], char tab_mot[][Len_Mot]){
+	
+	for(int i=0; i<NBMOTS; i++)
+	{
+		if(strstr(tab_mot[i], sub)!=NULL) strcpy(NewTab[i], tab_mot[i]);
+	}	
+}
+
+
+
+
+
+
+
+
