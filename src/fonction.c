@@ -31,12 +31,11 @@ void Tab_mots(char Mots[][Len_Mot]) {
 
 }
 
-void Sub_Filter(char sub[], char Tab[][Len_Mot]){
+void Sub_Filter(char sub[], char tab_mot[][Len_Mot]){
 	
-	for(int i=0; i<NBMOTS; i++)
-		if( strstr(Tab[i], sub) == NULL )
-			Tab[i][0] = '\0';
-
+	for(int i=0; i<NBMOTS; i++)	
+		if(strstr(tab_mot[i], sub)==NULL)
+		tab_mot[i][0]= "\O";	
 }
 
 int ifInData(char mot[], char Tab[][Len_Mot]) {
