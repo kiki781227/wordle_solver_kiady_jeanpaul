@@ -33,20 +33,11 @@ void Tab_mots(char Mots[][Len_Mot]) {
 
 void Sub_Filter(char sub[], char tab_mot[][Len_Mot]){
 	
-	for(int i=0; i<NBMOTS; i++)	
-		if(strstr(tab_mot[i], sub)==NULL)
-		tab_mot[i][0]= "\O";	
+	for (int i = 0 ; i < NBMOTS; i++)	
+		if ( strstr(tab_mot[i], sub) == NULL )
+			tab_mot[i][0] = '\0';	
 }
 
-int ifInData(char mot[], char Tab[][Len_Mot]) {
-	
-	for (int i = 0; i < NBMOTS; i++) {
-		if ( strcmp(mot, Tab[i]) == 0 )
-			return 1;
-	}
-	
-	return 0;
-}
 
 void Ajout_Lettre(char Lettres[], char Tab[][Len_Mot]) {
 	
