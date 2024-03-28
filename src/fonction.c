@@ -39,6 +39,55 @@ void Sub_Filter(char sub[], char NewTab[][Len_Mot], char tab_mot[][Len_Mot]){
 	}	
 }
 
+int ifInData(char mot[], char Tab[][Len_Mot]) {
+	
+	for (int i = 0; i < NBMOTS; i++) {
+		if ( strcmp(mot, Tab[i]) == 0 )
+			return 1;
+	}
+	
+	return 0;
+}
+
+int Ajout_Lettre(char Lettres[], char Tab[][Len_Mot]) {
+	
+	int ifLettre = 0;
+	for ( int iMot = 0; iMot < LenTab; iMot++)
+		ifLettre = 0;
+		
+		for (unsigned int i = 0; i < strlen(Lettres); i++ )
+			if ( strchr(Tab[iMot], Lettres[i]) )
+				ifLettre = 1;
+		
+		if ( !ifLettre ) Tab[iMot][0] = '\0';
+}
+
+void Retrait_Lettre(char Lettres[], char Tab[][Len_Mot]) {
+	
+	for (int iMot = 0; iMot < LenTab; iMot++)
+		
+		for (unsigned int i = 0; i < strlen(Lettres); i++ )
+			if ( strchr(Tab[iMot], Lettres[i]) ) {
+				Tab[iMot][0] = '\0';
+				break;
+			}
+}
+
+void Commence_Par(char Lettres[], char Tab[][Len_Mot]) {
+	
+	int nbLettres = strlen(Lettres);
+	char mot[nbLettres+1];
+	
+	for ( int iMot = 0; iMot < LenTab; iMot++) {
+		
+		for (int i = 0; i < nbLettres; i++)
+			mot[i] = Tab[iMot][i];
+		
+		if ( strcmp(mot, Lettres) != 0 ) Tab[iMot][0] = '\0';
+	}
+
+}
+
 
 
 
