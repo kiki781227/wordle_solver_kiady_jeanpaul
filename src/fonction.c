@@ -31,12 +31,12 @@ void Tab_mots(char Mots[][Len_Mot]) {
 
 }
 
-void Sub_Filter(char sub[], char NewTab[][Len_Mot], char tab_mot[][Len_Mot]){
+void Sub_Filter(char sub[], char Tab[][Len_Mot]){
 	
 	for(int i=0; i<NBMOTS; i++)
-	{
-		if(strstr(tab_mot[i], sub)!=NULL) strcpy(NewTab[i], tab_mot[i]);
-	}	
+		if( strstr(Tab[i], sub) == NULL )
+			Tab[i][0] = '\0';
+
 }
 
 int ifInData(char mot[], char Tab[][Len_Mot]) {
@@ -49,10 +49,10 @@ int ifInData(char mot[], char Tab[][Len_Mot]) {
 	return 0;
 }
 
-int Ajout_Lettre(char Lettres[], char Tab[][Len_Mot]) {
+void Ajout_Lettre(char Lettres[], char Tab[][Len_Mot]) {
 	
 	int ifLettre = 0;
-	for ( int iMot = 0; iMot < LenTab; iMot++)
+	for ( int iMot = 0; iMot < NBMOTS; iMot++) {
 		ifLettre = 0;
 		
 		for (unsigned int i = 0; i < strlen(Lettres); i++ )
@@ -60,11 +60,12 @@ int Ajout_Lettre(char Lettres[], char Tab[][Len_Mot]) {
 				ifLettre = 1;
 		
 		if ( !ifLettre ) Tab[iMot][0] = '\0';
+	}
 }
 
 void Retrait_Lettre(char Lettres[], char Tab[][Len_Mot]) {
 	
-	for (int iMot = 0; iMot < LenTab; iMot++)
+	for (int iMot = 0; iMot < NBMOTS; iMot++)
 		
 		for (unsigned int i = 0; i < strlen(Lettres); i++ )
 			if ( strchr(Tab[iMot], Lettres[i]) ) {
@@ -78,7 +79,7 @@ void Commence_Par(char Lettres[], char Tab[][Len_Mot]) {
 	int nbLettres = strlen(Lettres);
 	char mot[nbLettres+1];
 	
-	for ( int iMot = 0; iMot < LenTab; iMot++) {
+	for ( int iMot = 0; iMot < NBMOTS; iMot++) {
 		
 		for (int i = 0; i < nbLettres; i++)
 			mot[i] = Tab[iMot][i];
@@ -87,11 +88,3 @@ void Commence_Par(char Lettres[], char Tab[][Len_Mot]) {
 	}
 
 }
-
-
-
-
-
-
-
-
