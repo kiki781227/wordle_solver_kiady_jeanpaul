@@ -4,7 +4,8 @@
 int main() {
 	
 	char tab[NBMOTS][Len_Mot], Lettres[Len_Mot];
-	int choix_filter, choix = 1, nbAff;
+	int choix = 1, nbAff;
+	char choix_filter;
 	Tab_mots(tab);
 	
 	printf("Voilà tous les mots présents dans la base de donnée : \n");
@@ -19,31 +20,32 @@ int main() {
 		
 		printf("Quel filtre voulez vous utilisez ?\n");
 		printf("Taper 1 (filtre ajout lettre), 2 (Filtre retrait lettre), 3 (Filtre Substring) ou 4 (Commence par) : ");
-		scanf("%d", &choix_filter);
+		scanf("%c", &choix_filter);
+		
 		
 		switch(choix_filter) {
-			case 1: 
+			case '1' : 
 				printf("Entrer la ou les lettre(s) : ");
 				scanf("%s", Lettres);
 				for (int i = 0; i < (int)strlen(Lettres); i++) Lettres[i] = tolower(Lettres[i]);
 				Ajout_Lettre(Lettres, tab);
 				break;
 			
-			case 2: 
+			case '2' : 
 				printf("Entrer la ou les lettre(s) : ");
 				scanf("%s", Lettres);
 				for (int i = 0; i < (int)strlen(Lettres); i++) Lettres[i] = tolower(Lettres[i]);
 				Retrait_Lettre(Lettres, tab);
 				break;
 				
-			case 3: 
+			case '3' : 
 				printf("Entrer la ou les lettre(s) : ");
 				scanf("%s", Lettres);
 				for (int i = 0; i < (int)strlen(Lettres); i++) Lettres[i] = tolower(Lettres[i]);
 				Sub_Filter(Lettres, tab);
 				break;
 			
-			case 4: 
+			case '4' : 
 				printf("Entrer la ou les lettre(s) : ");
 				scanf("%s", Lettres);
 				for (int i = 0; i < (int)strlen(Lettres); i++) Lettres[i] = tolower(Lettres[i]);
@@ -51,7 +53,7 @@ int main() {
 				break;
 					
 			default: 
-				printf("\nChoix invalide.\n\n");
+				printf("\n\nChoix invalide.\n\n");
 				continue;
 		}
 		
