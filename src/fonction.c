@@ -1,10 +1,5 @@
 #include "../include/wordle_solver.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <ctype.h> 
-#include <string.h>
-#define NBMOTS 2309
-#define Len_Mot 6
+
 
 void Tab_mots(char Mots[][Len_Mot]) {
     FILE* Fichier = fopen("../ressources/bdd_wordle.txt", "r");

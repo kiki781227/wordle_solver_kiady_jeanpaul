@@ -1,5 +1,6 @@
 #include "fonction.c"
 
+
 int main() {
 	
 	char tab[NBMOTS][Len_Mot], Lettres[Len_Mot];
